@@ -6,15 +6,15 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://git-repository
+    repoURL: https://github.com/victoorraphael/argo-lab.git
     targetRevision: HEAD
     path: dev
   destination:
-    server: https://server-url
+    server: https://kubernetes.default.svc
     namespace: myapp
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
     automated:
-      selfHead: true
+      selfHeal: true
       prune: true
