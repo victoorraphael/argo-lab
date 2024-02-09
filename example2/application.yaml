@@ -12,8 +12,7 @@ spec:
   project: default
   source:
     chart: myhelmapp
-    repoURL: https://github.com/victoorraphael/argo-lab.git
-    path: example2/chart
+    repoURL: https://github.com/victoorraphael/argo-lab/example2/chart
     targetRevision: 0.1.0
     helm:
       values: |
