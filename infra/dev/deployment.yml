@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: aputra/nginx-lesson159:v0.5.1
+        image: aputra/myapp-182:0.2.0
         ports:
         - containerPort: 8080
         # resources:

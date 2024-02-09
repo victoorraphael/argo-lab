@@ -14,7 +14,11 @@ spec:
     namespace: myapp
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - Validate=true
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
     automated:
       selfHeal: true
       prune: true
+      allowEmpty: false
