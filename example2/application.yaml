@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myhelmapp-dev #application name
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc #where argo is installed
+    namespace: myapp-dev
+  project: default
+  source:
+    chart: myhelmapp
+    repoURL: https://github.com/victoorraphael/argo-lab.git
+    path: example2/chart
+    targetRevision: 0.1.0
+    helm:
+      values: |
+        appName: myhelmapp
+
+        namespace: dev
+
+        configmap:
+          data:
+            CUSTOM_HEADER: "welcome to dev environment"
+  
+  syncPolicy:
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: false
