@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-argo-application
+  name: myapp #application name
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/victoorraphael/argo-lab.git
     targetRevision: HEAD
-    path: dev
+    path: infra/dev
   destination:
-    server: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc #where argo is installed
     namespace: myapp
   syncPolicy:
     syncOptions:
