@@ -1,0 +1,7 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization  #optional if using kustomization.yaml file
+metadata:
+  name: arbitrary
+resources: #files to provide and overwrite
+  - deployment.yaml

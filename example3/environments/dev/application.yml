@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp #application name
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/victoorraphael/argo-lab.git
+    targetRevision: HEAD
+    path: example3/environments/dev
+  destination:
+    server: https://kubernetes.default.svc #where argo is installed
+    namespace: dev
+  syncPolicy:
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: false
