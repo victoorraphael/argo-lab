@@ -11,10 +11,9 @@ spec:
     namespace: myapp-dev
   project: default
   source:
-    chart: myhelmapp
     repoURL: https://github.com/victoorraphael/argo-lab.git
     path: example2/base
-    targetRevision: 0.1.0
+    targetRevision: HEAD
     helm:
       releaseName: myhelmapp
   
