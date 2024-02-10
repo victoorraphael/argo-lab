@@ -16,6 +16,8 @@ spec:
     targetRevision: HEAD
     helm:
       releaseName: myhelmapp
+      valueFiles:
+        - values.yaml
   
   syncPolicy:
     syncOptions:
