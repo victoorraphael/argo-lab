@@ -6,3 +6,7 @@ resources:
 - ../../base
 patchesStrategicMerge:
 - deployment.yaml
+
+images:
+  - name: nginx
+    newTag: testing
